@@ -16,9 +16,9 @@ if(navigator.geolocation){                  // navigator(object) is available in
 );
 }
 
-const  map = Location.map("map").setView([0,0], 10);
+const  map = L.map("map").setView([0,0], 16);
 
-Location.titleLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "OpenStreetMap Abhishek G",
 }).addTo(map);
 
@@ -32,8 +32,15 @@ socket.on("recieve-location", (data) => {
         markers[id].setLatLng([latitude , longitude]);
     }
     else{
-        markers[id] = L.markers([latitude , longitude]).addTo(map);
+        markers[id] = L.marker([latitude , longitude]).addTo(map);
     }
 
 });
 
+
+socket.on("user-disconnected", (id) => {
+    if(markers[id]){
+        map.removeLayer(markers[id]);
+        delete markers[id];
+    }
+});
