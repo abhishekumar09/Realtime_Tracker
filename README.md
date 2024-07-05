@@ -22,3 +22,9 @@
 - If a marker for the id exists, update its position, otherwise, create a new marker at the given coordinates and add it to the map.
 
 - When a user disconnects, remove their marker from the map and delete it from markers.
+
+
+-  Command For run the  local host  -:
+  
+      `` npx nodemon app.js ``
+
