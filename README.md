@@ -1,5 +1,4 @@
-
-![logo](file:///C:/Users/Lenovo/Pictures/Screenshots/Screenshot%202024-07-05%20223537.png)
+![Screenshot 2024-07-05 223537](https://github.com/abhishekumar09/Realtime_Tracker/assets/96674255/44539e0c-0edc-4d03-ba3e-0f0b8308a246)
 
 
 Check if the browser supports geolocation.
