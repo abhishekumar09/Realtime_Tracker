@@ -16,6 +16,24 @@ if(navigator.geolocation){                  // navigator(object) is available in
 );
 }
 
-Location.map("map").setView([0,0], 10);
+const  map = Location.map("map").setView([0,0], 10);
 
-Location.titleLayer()
+Location.titleLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "OpenStreetMap Abhishek G",
+}).addTo(map);
+
+const markers = {};
+
+
+socket.on("recieve-location", (data) => {
+    const { id, latitude, longitude} = data;
+    map.setView([latitude, longitude] );
+    if(markers[id]){
+        markers[id].setLatLng([latitude , longitude]);
+    }
+    else{
+        markers[id] = L.markers([latitude , longitude]).addTo(map);
+    }
+
+});
+

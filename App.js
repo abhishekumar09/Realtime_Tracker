@@ -15,11 +15,17 @@ const io = new Server(server); // Initialize the Socket.io server
 app.set("view engine", "ejs"); // Set EJS as the view engine
 app.use(express.static(path.join(__dirname, "public"))); // Static file setup
 
-io.on("connection", (socket) => {
-    console.log("connected");
+io.on("connection",function(socket)  {
+    socket.on("send-location", function (data){
+    io.emit("recieve-location", {id: socket.id, ...data});
+    });
+socket.on("disconnect", function(){
+    io.emit("user-disconnected", socket.id)
+})
+
 });
 
-app.get("/", (req, res) => {
+app.get("/", function(req, res) {
     res.render("index");
 });
 
