@@ -1,4 +1,4 @@
-<span> Realtime Device track <span>
+# Realtime Device track 
 
 ![Screenshot 2024-07-05 223537](https://github.com/abhishekumar09/Realtime_Tracker/assets/96674255/44539e0c-0edc-4d03-ba3e-0f0b8308a246)
 
